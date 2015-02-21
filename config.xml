@@ -13,5 +13,5 @@
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
     <preference name="BackupWebStorage" value="local"/>
-    <icon src="../resources/icon.png" gap:platform="ios"/>
+    <icon src="resources/icon.png" gap:platform="ios"/>
 </widget>

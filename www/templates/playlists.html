@@ -2,8 +2,9 @@
     <ion-content>
         <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
         <ion-list>
-          <ion-item ng-repeat="(index,playlist) in playlists" ng-click="open('{{playlist.id}}')">
-            {{playlist.title.__text}}
+          <ion-item ng-repeat="(index,playlist) in playlists" >
+            <p ng-click="open('{{playlist.id}}')">{{playlist.title.__text}}</p><ion-option-button class="button button-assertive" on-tap="copy(playlist.id)">
+复制链接</ion-option-button>
           </ion-item>
         </ion-list>
     </ion-content>

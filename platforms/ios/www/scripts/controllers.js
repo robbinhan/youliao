@@ -3,7 +3,6 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 })
 .controller('PlaylistsCtrl', function($scope,PlayLists,x2js,$window,$stateParams,$ionicLoading) {
-
   var getPlayLists = function(type) {
 
     //请求的rss类型
@@ -71,7 +70,7 @@ angular.module('starter.controllers', [])
    * @return {[type]}      [description]
    */
   $scope.open = function(href) {
-    $window.open(href,'_blank','location=yes');
+    $window.open(href,'_blank','location=no');
   }
 
   /**
@@ -80,6 +79,16 @@ angular.module('starter.controllers', [])
    */
   $scope.doRefresh = function(){
     getPlayLists('pulling');
+  }
+
+  /**
+   * 拷贝文章链接到缓冲区
+   * @return {[type]} [description]
+   */
+  $scope.copy = function(id){
+    console.log('controller',window.cordova);
+    window.cordova.plugins.clipboard.copy(id);
+    console.log('cpoy',id);
   }
 
   getPlayLists('normal');
