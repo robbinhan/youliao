@@ -3,11 +3,15 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 })
 .controller('PlaylistsCtrl', function($scope,PlayLists,x2js,$window,$stateParams,$ionicLoading) {
-  
+
   var getPlayLists = function(type) {
 
     //请求的rss类型
-    var playlistId = $stateParams.playlistId
+    var playlistId = $stateParams.playlistId;
+
+    if (playlistId === undefined) {
+      playlistId = 'startupnews';
+    }
 
     if (type == 'normal') {
       //显示loading层

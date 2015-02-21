@@ -19,20 +19,45 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <icon height="60" src="icons/ios/icon.jpg" width="60" />
-    <icon height="120" src="icons/ios/icon.jpg" width="120" />
-    <icon height="76" src="icons/ios/icon.jpg" width="76" />
-    <icon height="152" src="icons/ios/icon.jpg" width="152" />
-    <icon height="40" src="icons/ios/icon.jpg" width="40" />
-    <icon height="80" src="icons/ios/icon.jpg" width="80" />
-    <icon height="57" src="icons/ios/icon.jpg" width="57" />
-    <icon height="114" src="icons/ios/icon.jpg" width="114" />
-    <icon height="72" src="icons/ios/icon.jpg" width="72" />
-    <icon height="144" src="icons/ios/icon.jpg" width="144" />
-    <icon height="29" src="icons/ios/icon.jpg" width="29" />
-    <icon height="58" src="icons/ios/icon.jpg" width="58" />
-    <icon height="50" src="icons/ios/icon.jpg" width="50" />
-    <icon height="100" src="icons/ios/icon.jpg" width="100" />
+    <feature name="Keyboard">
+        <param name="ios-package" onload="true" value="IonicKeyboard" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <icon height="60" src="icons/ios/icon.png" width="60" />
+    <icon height="120" src="icons/ios/icon.png" width="120" />
+    <icon height="76" src="icons/ios/icon.png" width="76" />
+    <icon height="152" src="icons/ios/icon.png" width="152" />
+    <icon height="40" src="icons/ios/icon.png" width="40" />
+    <icon height="80" src="icons/ios/icon.png" width="80" />
+    <icon height="57" src="icons/ios/icon.png" width="57" />
+    <icon height="114" src="icons/ios/icon.png" width="114" />
+    <icon height="72" src="icons/ios/icon.png" width="72" />
+    <icon height="144" src="icons/ios/icon.png" width="144" />
+    <icon height="29" src="icons/ios/icon.png" width="29" />
+    <icon height="58" src="icons/ios/icon.png" width="58" />
+    <icon height="50" src="icons/ios/icon.png" width="50" />
+    <icon height="100" src="icons/ios/icon.png" width="100" />
     <name>Youliao</name>
     <description>
         stackexchange、segmentfault、stackoverflow、hacknews、startupnews的文章聚合器
@@ -42,7 +67,4 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVInAppBrowser" />
-    </feature>
 </widget>

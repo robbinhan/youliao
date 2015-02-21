@@ -3,6 +3,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 })
 .controller('PlaylistsCtrl', function($scope,PlayLists,x2js,$window,$stateParams,$ionicLoading) {
+  console.log('PlaylistsCtrl');
   
   var getPlayLists = function(type) {
 
