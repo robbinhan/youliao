@@ -4,6 +4,7 @@ angular.module('starter.controllers', [])
 })
 .controller('PlaylistsCtrl', function($scope, PlayLists, x2js, $window, $stateParams, 
   $ionicLoading,$ionicActionSheet) {
+
   var getPlayLists = function(type) {
 
     //请求的rss类型
@@ -72,7 +73,7 @@ angular.module('starter.controllers', [])
    * @return {[type]}      [description]
    */
   $scope.open = function(href) {
-    $window.open(href,'_blank','location=no');
+    $window.open(encodeURI(href),'_system','location=no');
   }
 
   /**

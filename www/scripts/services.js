@@ -4,12 +4,11 @@ angular.module('starter.services', [])
   var playlists = {};
   var promise;
   var config = {
-    'stackexchange':'http://stackexchange.com/feeds/questions',
+    'stackexchange':'http://stackexchange.com/feeds',
     'segmentfault':'http://segmentfault.com/feeds',
     'stackoverflow':'http://stackoverflow.com/feeds',
     'hacknews':'https://news.ycombinator.com/rss',
     'startupnews':'http://news.dbanotes.net/rss',
-
     'taobaoued':'http://ued.taobao.org/blog/feed/',
     'sinaued':'http://ued.sina.com.cn/?feed=rss2',
   };
