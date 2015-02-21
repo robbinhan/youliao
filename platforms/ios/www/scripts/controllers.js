@@ -2,7 +2,8 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 })
-.controller('PlaylistsCtrl', function($scope,PlayLists,x2js,$window,$stateParams,$ionicLoading) {
+.controller('PlaylistsCtrl', function($scope, PlayLists, x2js, $window, $stateParams, 
+  $ionicLoading,$ionicActionSheet) {
   var getPlayLists = function(type) {
 
     //请求的rss类型
@@ -43,8 +44,9 @@ angular.module('starter.controllers', [])
   var formatPlayLists = function(data,playlistId) {
     var playlists = [];
     json_playlists = x2js.xml_str2json(data);
-      //hacknews和startupnews限制30条消息
-      if (playlistId == 'hacknews' || playlistId == 'startupnews') {
+      //hacknews、startupnews、taobaoued、sinaued限制30条消息
+      if (playlistId == 'hacknews' || playlistId == 'startupnews'
+       || playlistId == 'taobaoued' || playlistId == 'sinaued') {
         items = json_playlists.rss.channel.item
         var len = items.length;
         var item = {};
@@ -86,10 +88,54 @@ angular.module('starter.controllers', [])
    * @return {[type]} [description]
    */
   $scope.copy = function(id){
-    console.log('controller',window.cordova);
     window.cordova.plugins.clipboard.copy(id);
-    console.log('cpoy',id);
   }
+
+  $scope.share = function(title, desc, url, thumb) {
+    $ionicActionSheet.show({
+        buttons: [
+            { text: '<b>分享至微信朋友圈</b>' },
+            { text: '分享给微信好友' }
+        ],
+        titleText: '分享',
+        cancelText: '取消',
+        cancel: function() {
+            // 取消时执行
+        },
+        buttonClicked: function(index) {
+            if(index == 0) {
+                $scope.shareViaWechat(WeChat.Scene.timeline, title, desc, url, thumb);
+            }
+            if(index ==1 ) {
+                $scope.shareViaWechat(WeChat.Scene.session, title, desc, url, thumb);
+            }
+        }
+    });
+  };
+
+  $scope.shareViaWechat = function(scene, title, desc, url, thumb) {
+    // 创建消息体
+    var msg = {
+        title: title ? title : "有料",
+        description: desc ? desc : "新闻聚合器",
+        url: url ? url : "http://fir.im/youliao",
+        thumb: thumb ? thumb : null
+    };
+
+    WeChat.share(msg, scene, function() {
+        $ionicPopup.alert({
+            title: '分享成功',
+            template: '感谢您的支持！',
+            okText: '关闭'
+        });
+    }, function(res) {
+        $ionicPopup.alert({
+            title: '分享失败',
+            template: '错误原因：' + res + '。',
+            okText: '我知道了'
+        });
+    });
+  };
 
   getPlayLists('normal');
 });

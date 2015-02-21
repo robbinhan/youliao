@@ -47,6 +47,14 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WeChat\"><param name=\"ios-package\" value=\"CDVWeChat\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"wechatappid\" value=\"wxa520fcfece7e5eaa\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -74,6 +82,46 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libc++.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libz.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libsqlite3.0.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "Security.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "CFBundleURLTypes": [
+                        {
+                            "xml": "<array><dict><key>CFBundleURLName</key><string>weixin</string><key>CFBundleURLSchemes</key><array><string>wxa520fcfece7e5eaa</string></array></dict></array>",
                             "count": 1
                         }
                     ]
@@ -104,6 +152,10 @@
             "PACKAGE_NAME": "com.robbinhan.Youliao"
         },
         "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.robbinhan.Youliao"
+        },
+        "com.wordsbaking.cordova.wechat": {
+            "APP_ID": "wxa520fcfece7e5eaa",
             "PACKAGE_NAME": "com.robbinhan.Youliao"
         }
     },

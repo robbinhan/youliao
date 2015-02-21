@@ -201,6 +201,13 @@ module.exports = [
         "clobbers": [
             "window.StatusBar"
         ]
+    },
+    {
+        "file": "plugins/com.wordsbaking.cordova.wechat/www/wechat.js",
+        "id": "com.wordsbaking.cordova.wechat.wechat",
+        "clobbers": [
+            "WeChat"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -213,7 +220,8 @@ module.exports.metadata =
     "org.apache.cordova.dialogs": "0.3.0",
     "org.apache.cordova.file": "1.3.3",
     "org.apache.cordova.inappbrowser": "0.6.0",
-    "org.apache.cordova.statusbar": "0.1.10"
+    "org.apache.cordova.statusbar": "0.1.10",
+    "com.wordsbaking.cordova.wechat": "0.3.0"
 }
 // BOTTOM OF METADATA
 });

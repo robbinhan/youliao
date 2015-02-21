@@ -8,7 +8,10 @@ angular.module('starter.services', [])
     'segmentfault':'http://segmentfault.com/feeds',
     'stackoverflow':'http://stackoverflow.com/feeds',
     'hacknews':'https://news.ycombinator.com/rss',
-    'startupnews':'http://news.dbanotes.net/rss'
+    'startupnews':'http://news.dbanotes.net/rss',
+
+    'taobaoued':'http://ued.taobao.org/blog/feed/',
+    'sinaued':'http://ued.sina.com.cn/?feed=rss2',
   };
 
   playlists.all = function(playlistId){

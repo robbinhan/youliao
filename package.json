@@ -49,5 +49,7 @@
     "test": "grunt test"
   },
   "cordovaPlugins": [
+    "com.wordsbaking.cordova.wechat",
+    "com.wordsbaking.cordova.wechat"
   ]
 }
