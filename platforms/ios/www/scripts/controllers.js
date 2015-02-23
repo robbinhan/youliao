@@ -45,26 +45,44 @@ angular.module('starter.controllers', [])
   var formatPlayLists = function(data,playlistId) {
     var playlists = [];
     json_playlists = x2js.xml_str2json(data);
-      //hacknews、startupnews、taobaoued、sinaued限制30条消息
-      if (playlistId == 'hacknews' || playlistId == 'startupnews'
-       || playlistId == 'taobaoued' || playlistId == 'sinaued') {
-        items = json_playlists.rss.channel.item
-        var len = items.length;
-        var item = {};
-        for (var i = 0; i < len; i++) {
-          if (i === 30) {
-            break;
-          }
-          item = items[i];
+    //hacknews、startupnews、taobaoued、sinaued限制30条消息
+    if (playlistId == 'hacknews' || playlistId == 'startupnews'
+     || playlistId == 'taobaoued' || playlistId == 'sinaued'
+     || playlistId == 'dgtle') {
+      items = json_playlists.rss.channel.item
+      var len = items.length;
+      var item = {};
+      for (var i = 0; i < len; i++) {
+        if (i === 30) {
+          break;
+        }
+        item = items[i];
+        if (item.title != "") {
           playlists.push({
             id:item.link,
             title:{__text:item.title}
           });
         }
-      } else {
-        playlists = json_playlists.feed.entry  
       }
-      return playlists;
+    } else if (playlistId == 'next') {
+      entrys = json_playlists.feed.entry;
+      var len = entrys.length;
+      for (var i = 0; i < len; i++) {
+        if (i === 30) {
+          break;
+        }
+        item = entrys[i];
+        if (item.title != "") {
+          playlists.push({
+            id:item.link._href,
+            title:{__text:item.title}
+          });
+        }
+      }
+    } else {
+      playlists = json_playlists.feed.entry  
+    }
+    return playlists;
   }
 
   /**
