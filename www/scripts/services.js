@@ -9,11 +9,10 @@ angular.module('starter.services', [])
     'stackoverflow':'http://stackoverflow.com/feeds',
     'hacknews':'https://news.ycombinator.com/rss',
     'startupnews':'http://news.dbanotes.net/rss',
-    'taobaoued':'http://ued.taobao.org/blog/feed/',
-    'sinaued':'http://ued.sina.com.cn/?feed=rss2',
     'guokr':'http://www.guokr.com/rss/',
     'dgtle':'http://www.dgtle.com/rss/dgtle.xml',
-    'next':'http://next.36kr.com/feed'
+    'next':'http://next.36kr.com/feed',
+    'logdownweek':'http://feeds.feedburner.com/logdown/hot_week?format=xml'
   };
 
   playlists.all = function(playlistId){

@@ -45,10 +45,10 @@ angular.module('starter.controllers', [])
   var formatPlayLists = function(data,playlistId) {
     var playlists = [];
     json_playlists = x2js.xml_str2json(data);
+    console.log(json_playlists);
     //hacknews、startupnews、taobaoued、sinaued限制30条消息
     if (playlistId == 'hacknews' || playlistId == 'startupnews'
-     || playlistId == 'taobaoued' || playlistId == 'sinaued'
-     || playlistId == 'dgtle') {
+     || playlistId == 'dgtle' || playlistId == 'logdownweek') {
       items = json_playlists.rss.channel.item
       var len = items.length;
       var item = {};
@@ -60,7 +60,8 @@ angular.module('starter.controllers', [])
         if (item.title != "") {
           playlists.push({
             id:item.link,
-            title:{__text:item.title}
+            title:{__text:item.title},
+            published:item.pubDate
           });
         }
       }
@@ -75,7 +76,8 @@ angular.module('starter.controllers', [])
         if (item.title != "") {
           playlists.push({
             id:item.link._href,
-            title:{__text:item.title}
+            title:{__text:item.title},
+            published:item.published
           });
         }
       }
