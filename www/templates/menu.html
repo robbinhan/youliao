@@ -17,42 +17,10 @@
       <h1 class="title">有料</h1>
     </ion-header-bar>
     <ion-content>
-      <ion-list>
-        <ion-item nav-clear menu-close href="#/app/playlists/stackexchange">
-          <img src="./images/stackexchange.ico" class="ico"/>
-          StackExchange
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/segmentfault">
-          <img src="./images/segmentfault.ico" class="ico"/>
-          SegmentFault
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/stackoverflow">
-          <img src="./images/stackoverflow.ico" class="ico"/>
-          StackoverFlow
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/hacknews">
-          <img src="./images/hacknews.ico" class="ico"/>
-          HackNews
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/startupnews">
-          <img src="./images/startupnews.ico" class="ico"/>
-          StartupNews
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/guokr">
-          <img src="./images/guokr.png" class="ico"/>
-          果壳
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/dgtle">
-          <img src="./images/dgtle.ico" class="ico"/>
-          数字尾巴
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/next">
-          <img src="./images/next.ico" class="ico"/>
-          Next
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists/logdownweek">
-          <img src="./images/logdown.jpg" class="ico"/>
-          LogDown Week
+      <ion-list ng-repeat="(index,item) in menuItems">
+        <ion-item nav-clear menu-close href="#/app/playlists/{{index}}">
+          <img src="./images/{{item.ico}}" class="ico"/>
+          {{item.name}}
         </ion-item>
       </ion-list>
     </ion-content>
