@@ -67,18 +67,21 @@ angular.module('starter.services', [])
   playlists.rss2 = function(data){
     var playlists = [];
     var json_playlists = x2js.xml_str2json(data);
+    console.log(json_playlists);
     var items = json_playlists.rss.channel.item
     var len = items.length;
     var item = {};
+    var row_title = '';
     for (var i = 0; i < len; i++) {
       if (i === 30) {
         break;
       }
       item = items[i];
       if (item.title != "") {
+        row_title = item.title.__cdata ? item.title.__cdata : item.title;
         playlists.push({
           id:item.link,
-          title:{__text:item.title},
+          title:{__text:row_title},
           published:item.pubDate
         });
       }
@@ -120,6 +123,7 @@ angular.module('starter.services', [])
   var apps = {};
 
   var config = [
+    {'url':'http://rss.sina.com.cn/news/allnews/finance.xml','name':'新浪财经','ico':'sina.png','filterType':0},
     {'url':'https://news.ycombinator.com/rss','name':'HackNews','ico':'hacknews.ico','filterType':0},
     {'url':'http://news.dbanotes.net/rss','name':'StartupNews','ico':'startupnews.ico','filterType':0},
     {'url':'http://www.guokr.com/rss/','name':'果壳','ico':'guokr.png','filterType':2},
